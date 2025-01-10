@@ -87,3 +87,13 @@ create_distance_plot(df)
 print("Visualizations have been created:")
 print("1. average_locations_map.html - Interactive map showing average daily locations")
 print("2. distance_analysis.png - Distance analysis plot with trends and statistics")
+
+
+
+for column in df.columns:
+    print(f"\nColumn: {column}")
+    print(f"Mean: {df[column].mean()}")
+    print(f"Median: {df[column].median()}")
+    print(f"Std: {df[column].std()}")
+    print(f"Min: {df[column].min()}")
+    print(f"Max: {df[column].max()}")
