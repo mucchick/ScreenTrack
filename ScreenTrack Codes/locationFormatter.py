@@ -66,18 +66,11 @@ def process_location_data(data):
         coordinates = stats['coordinates']
         lats, lons = zip(*coordinates)
 
-        # Calculate area
-        area = (max(lats) - min(lats)) * (max(lons) - min(lons))
-
-        # Calculate unique locations (rounded to 3 decimal places)
-        unique_locations = len(set([f"{lat:.3f},{lon:.3f}" for lat, lon in coordinates]))
-
         final_stats.append({
             'date': entry_date,
             'total_distance_km': round(stats['total_distance'], 2),
             'center_lat': round(np.mean(lats), 6),
-            'center_lon': round(np.mean(lons), 6),
-            'location_density': round(unique_locations / area if area > 0 else 0, 4)
+            'center_lon': round(np.mean(lons), 6)
         })
 
     # Create DataFrame and sort by date
